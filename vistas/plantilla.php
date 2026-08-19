@@ -16,6 +16,11 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
+
+  <!-- SweetAlert -->
+  <link rel="stylesheet" href="vistas/plugins/sweetalert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="vistas/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="vistas/dist/css/adminlte.min.css">
 </head>
