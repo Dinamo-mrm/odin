@@ -77,4 +77,11 @@ class ModeloUsuarios {
         }
     } // End of mdlCrearUsuario
 
+    static public function mdlMostrarUsuario($tabla, $campo, $valor){
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla where $campo=:idUsuario");
+        $stmt->bindParam(":idUsuario", $valor, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
 } // End of class ModeloUsuarios

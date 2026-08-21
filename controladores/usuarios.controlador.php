@@ -70,6 +70,13 @@ class ControladorUsuarios {
 
         }
 
-    }    
+    }   
+    
+    static public function ctrMostrarUsuario($campo, $valor){
+        $tabla = "usuarios";
+        $respuesta = ModeloUsuarios::mdlMostrarUsuario($tabla, $campo, $valor);
+        return $respuesta;
+
+    }
 
 } // End of class ControladorUsuarios

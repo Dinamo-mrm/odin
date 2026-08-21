@@ -6,8 +6,8 @@ $(document).on("click", ".btnActivarUsuario", function() {
     let boton = $(this);
     let idUsuario = $(this).attr("data-idUsuario");
     let estadoUsuario = $(this).attr("data-estadoUsuario");
-    console.log("idUsuario -->", idUsuario);
-    console.log("estadoUsuario -->", estadoUsuario);
+    // console.log("idUsuario -->", idUsuario);
+    // console.log("estadoUsuario -->", estadoUsuario);
 
     let datos = new FormData();
     datos.append("idUsuario", idUsuario);
@@ -21,8 +21,8 @@ $(document).on("click", ".btnActivarUsuario", function() {
         contentType: false,
         processData: false,
         success: function(respuesta) {
-            console.log("respuesta -->", respuesta);
-            console.log(boton);
+            // console.log("respuesta -->", respuesta);
+            // console.log(boton);
 
             if (respuesta){
                 if (estadoUsuario === "Activo"){
@@ -45,3 +45,31 @@ $(document).on("click", ".btnActivarUsuario", function() {
         }
     });
 });// fin de activar/desactivar usuario
+
+$(document).on("click", ".btnEditarUsuario", function() {
+    let idUsuario = $(this).attr("data-idUsuario");
+    // console.log("Editar usuario --> ", idUsuario);
+    let datos = new FormData();
+    datos.append("idUsuarioEditar", idUsuario);
+    $.ajax({
+        url: "ajax/usuarios.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function(respuesta) {
+            console.log(respuesta);
+
+            $("#editarNumeroIdentificacion").val(respuesta["num_identificacion"]);
+            $("#editarNombreUsuario").val(respuesta["nombre"]);
+            $("#EditarCorreo").val(respuesta["correo"]);
+            $("#editarDireccion").val(respuesta["direccion"]);
+            $("#editarTelefono").val(respuesta["telefono"]);
+
+        }
+    })
+    
+
+})// fin de editar usuarios
